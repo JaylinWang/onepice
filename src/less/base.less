@@ -1,3 +1,20 @@
+body {
+  font-size: 14px;
+  font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+*{
+  box-sizing: border-box;
+}
+
+.clearfix {
+  &::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
 .top-loading {
   height: 2px;
   width: 100%;
@@ -8,17 +25,17 @@
   border-bottom: 1px solid #f2f2f2;
   box-shadow: 1px 1px 1px #f2f2f2;
   .header-wrapper {
-    @include clearfix;
+    .clearfix();
     position: relative;
-    width: $container-width;
+    width: @container-width;
     margin-left: auto;
     margin-right: auto;
     overflow: hidden;
   }
   .brand {
-    height: $header-height;
+    height: @header-height;
     float: left;
-    line-height: $header-height;
+    line-height: @header-height;
     a {
       font-size: 24px;
       text-decoration: none;
@@ -35,12 +52,12 @@
       margin: 0;
       list-style: none;
       li {
-        line-height: $header-height;
+        line-height: @header-height;
         display: inline-block;
         position: relative;
         a {
           display: inline-block;
-          height: $header-height;
+          height: @header-height;
           padding-left: 10px;
           padding-right: 10px;
           color: #333;
@@ -48,14 +65,14 @@
           font-weight: 320;
           border-bottom: 2px solid transparent;
           &:hover {
-            color: $brand-blue;
+            color: @brand-blue;
           }
         }
       }
       li.current {
         a {
           color: #000;
-          border-bottom-color: $brand-blue;
+          border-bottom-color: @brand-blue;
         }
       }
     }
@@ -79,7 +96,7 @@
         text-align: center;
         cursor: pointer;
         &:hover {
-          color: $brand-blue;
+          color: @brand-blue;
         }
         div:first-child {
           line-height: 20px;
@@ -95,7 +112,7 @@
     position: absolute;
     top: 0;
     bottom: 0;
-    left: $container-width;
+    left: @container-width;
     right: 0;
     background: #fff;
     transition: left .3s;
@@ -137,9 +154,9 @@
 
 .content {
   .content-wrapper {
-    @include clearfix;
+    .clearfix();
     display: flex;
-    width: $container-width;
+    width: @container-width;
     margin-left: auto;
     margin-right: auto;
     padding-top: 30px;
@@ -160,7 +177,7 @@
 }
 
 .side {
-  width: $side-width;
+  width: @side-width;
   .side-wrapper {
     padding-left: 30px;
   }
@@ -168,9 +185,9 @@
     margin: 0;
     padding: 10px 0;
     font-size: 16px;
-    color: $brand-dark;
+    color: @brand-dark;
     text-align: center;
-    border-top: 2px solid $brand-blue;
+    border-top: 2px solid @brand-blue;
     border-bottom: 1px dashed #ccc;
   }
   .box {
@@ -207,24 +224,24 @@
         left: 0;
         border-width: 4px;
         border-style: solid;
-        border-color: #fff #fff #fff $brand-blue;
+        border-color: #fff #fff #fff @brand-blue;
       }
       a {
-        color: $gray;
+        color: @gray;
         text-decoration: none;
         &:hover {
-          color: $brand-blue;
+          color: @brand-blue;
         }
       }
       .date {
         padding: 5px 0;
-        color: $gray-light;
+        color: @gray-light;
         font-size: 12px;
       }
     }
   }
   ul.tag-list {
-    @include clearfix;
+    .clearfix();
     margin: 0;
     list-style: none;
     padding: 10px 0;
@@ -248,22 +265,22 @@
         width: 100%;
         padding: 0 10px;
         line-height: 24px;
-        color: $gray;
-        border: 1px solid $gray;
+        color: @gray;
+        border: 1px solid @gray;
         border-radius: 30px;
         text-decoration: none;
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
         &:hover {
-          color: $brand-blue;
-          border-color: $brand-blue;
+          color: @brand-blue;
+          border-color: @brand-blue;
         }
       }
     }
   }
   ul.category-list {
-    @include clearfix;
+    .clearfix();
     margin: 0;
     list-style: none;
     padding: 10px 0;
@@ -282,16 +299,16 @@
         width: 100%;
         padding: 0 10px;
         line-height: 30px;
-        color: $gray;
-        border: 1px solid $gray;
+        color: @gray;
+        border: 1px solid @gray;
         border-radius: 3px;
         text-decoration: none;
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
         &:hover {
-          color: $brand-blue;
-          border-color: $brand-blue;
+          color: @brand-blue;
+          border-color: @brand-blue;
         }
       }
     }
@@ -299,11 +316,11 @@
 }
 
 .footer {
-  background: $brand-dark;
+  background: @brand-dark;
   .footer-wrapper {
-    @include clearfix;
+    .clearfix();
     position: relative;
-    width: $container-width;
+    width: @container-width;
     margin-left: auto;
     margin-right: auto;
     ul {
@@ -319,7 +336,7 @@
         width: 40px;
         text-align: center;
         line-height: 40px;
-        background: $gray-dark;
+        background: @gray-dark;
         border-radius: 40px;
         &:not(:last-child) {
           margin-right: 15px;
@@ -335,7 +352,7 @@
     }
   }
   .bottom-wrapper {
-    @include clearfix;
+    .clearfix();
     position: relative;
     background: #222;
     color: #666;
@@ -344,4 +361,25 @@
       padding: 10px;
     }
   }
+}
+
+// TODO：ghost3.x编辑器新增内容形式，暂未支持
+// https://ghost.org/docs/api/v3/handlebars-themes/editor/#image-size-options
+.kg-width-wide,
+.kg-width-full,
+.kg-gallery-container,
+.kg-gallery-row, 
+.kg-gallery-image,
+.kg-bookmark-container,
+.kg-bookmark-content,
+.kg-bookmark-card,
+.kg-bookmark-title
+.kg-bookmark-metadata,
+.kg-bookmark-icon,
+.kg-bookmark-author,
+.kg-bookmark-description,
+.kg-bookmark-publisher,
+.kg-bookmark-thumbnail
+{
+  color: #fff;
 }

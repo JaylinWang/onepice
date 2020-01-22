@@ -1,41 +1,39 @@
-@import "theme";
-@import "diff";
-@mixin code-block {
+.code-block {
   overflow: scroll;
   margin: 20px 0;
   padding: 15px;
-  color: $highlight-foreground;
-  font-size: $code-font-size;
-  background: $highlight-background;
+  color: @highlight-foreground;
+  font-size: @code-font-size;
+  background: @highlight-background;
   line-height: 1;
 }
 
 pre,
 code {
-  font-family: $code-font-family;
+  font-family: @code-font-family;
 }
 
 code {
   padding: 2px 6px;
   word-wrap: break-all;
-  color: $highlight-foreground;
-  background: $highlight-background;
-  border-radius: $code-border-radius;
-  font-size: $code-font-size;
+  color: @highlight-foreground;
+  background: @highlight-background;
+  border-radius: @code-border-radius;
+  font-size: @code-font-size;
 }
 
 pre {
-  @include code-block;
+  .code-block();
   code {
     padding: 0;
-    color: $highlight-foreground;
+    color: @highlight-foreground;
     background: none;
     text-shadow: none;
   }
 }
 
 .highlight {
-  @include code-block;
+  .code-block();
   pre {
     border: none;
     margin: 0;
@@ -51,21 +49,21 @@ pre {
     padding: 0;
   }
   figcaption {
-    @include clearfix;
+    .clearfix();
     font-size: 1em;
-    color: $highlight-foreground;
+    color: @highlight-foreground;
     line-height: 1em;
     margin-bottom: 1em;
     a {
       float: right;
-      color: $highlight-foreground;
+      color: @highlight-foreground;
       &:hover {
-        border-bottom-color: $highlight-foreground;
+        border-bottom-color: @highlight-foreground;
       }
     }
   }
   .gutter pre {
-    color: $gray-dark;
+    color: @gray-dark;
     text-align: right;
     border-right: 1px solid #e6e6e6;
     padding-right: 20px;
@@ -94,20 +92,20 @@ pre {
 
 // For diff highlight
 pre .deletion {
-  background: $highlight-deletion;
+  background: @highlight-deletion;
 }
 
 pre .addition {
-  background: $highlight-addition;
+  background: @highlight-addition;
 }
 
 pre .meta {
-  color: $highlight-purple;
+  color: @highlight-purple;
 }
 
 pre {
   .comment {
-    color: $highlight-comment;
+    color: @highlight-comment;
   }
   .variable,
   .attribute,
@@ -130,7 +128,7 @@ pre {
   .class,
   .css,
   .pseudo {
-    color: $highlight-red;
+    color: @highlight-red;
   }
   .number,
   .preprocessor,
@@ -139,7 +137,7 @@ pre {
   .params,
   .constant,
   .command {
-    color: $highlight-orange;
+    color: @highlight-orange;
   }
   .ruby,
   .class,
@@ -158,12 +156,12 @@ pre {
   .special,
   .number,
   .formula {
-    color: $highlight-green;
+    color: @highlight-green;
   }
   .title,
   .css,
   .hexcolor {
-    color: $highlight-aqua;
+    color: @highlight-aqua;
   }
   .function,
   .python,
@@ -182,11 +180,11 @@ pre {
   .title,
   .coffeescript,
   .title {
-    color: $highlight-blue;
+    color: @highlight-blue;
   }
   .keyword,
   .javascript,
   .function {
-    color: $highlight-purple;
+    color: @highlight-purple;
   }
 }
